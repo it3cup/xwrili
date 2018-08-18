@@ -1,1 +1,38 @@
-/* pages/fate/fate.wxss */
+.content{
+  background-color: #ccc;
+  padding: 10rpx;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.section{
+  margin-top: 5rpx;
+  width: 730;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5rpx;
+}
+
+.row{
+  padding: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.cell{
+  width: 120rpx;
+}
+
+.cellB{
+  width: 80rpx;
+}
+
+.red{
+  color: red;
+}
+.blue{
+  color: cornflowerblue;
+}
+.center{
+  text-align: center;
+}

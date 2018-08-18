@@ -13,16 +13,11 @@ Page({
     time: -1,
   },
   onFate: function() {
-    if (this.data.sex == -1){
-      wx.showToast({ icon:"none", title: "请选择乾[坤]造"});
+    if (this.data.sex == -1 || this.data.time == -1){
+      wx.showToast({ icon:"none", title: "请选择乾[男]坤[女]造和出生时辰^_^"});
       return;
     }
-
-    if (this.data.time == -1){
-      wx.showToast({ icon: "none", title: "请选择出生时辰" });
-      return;
-    }
-    
+    wx.navigateTo({ url: "../../pages/fate/fate?date=" + this.data.nowDate + "&time=" + this.data.time + "&sex=" + this.data.sex});
   },
   onTimeSelect: function(e) {
     var time = e.currentTarget.dataset.time;

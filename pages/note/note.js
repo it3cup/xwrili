@@ -50,7 +50,7 @@ Page({
   onLoad: function (options) {
     var notes = wx.getStorageSync("notes");
     if (notes !="") {
-     this.setData({ notes: res.data });
+     this.setData({ notes: notes });
     }
 
   },

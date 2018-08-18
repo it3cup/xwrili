@@ -1,2 +1,109 @@
-<!--pages/fate/fate.wxml-->
-<text>pages/fate/fate.wxml</text>
+<view class="content">
+  <view class="section center">
+    <view class="row">
+      {{dateStr}}[{{sex}}]
+    </view>
+     <view class="row">
+        {{lunarStr}}
+    </view>
+  </view>
+  <view class="section">
+    <view class="row red">
+        <block wx:for="{{ssArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row blue">
+        <block wx:for="{{tgArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row blue">
+        <block wx:for="{{dzArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row">
+        <block wx:for="{{cgArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+  </view>
+  <view class="section">
+    <view class="row red">
+        <block wx:for="{{wxArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row blue">
+        <block wx:for="{{wcArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+  </view>
+
+  <view class="section">
+     <view class="row red">大运</view>
+    <view class="row red">
+        <block wx:for="{{yssArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row blue">
+    <block wx:for="{{ytgArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row blue">
+        <block wx:for="{{ydzArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row">
+        <block wx:for="{{yswArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row">
+        <block wx:for="{{ydyArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+  </view>
+
+
+   <view class="section">
+     <view class="row red">流年</view>
+    <view class="row red">
+        <block wx:for="{{lnssArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+    <view class="row blue">
+        <block wx:for="{{lngzArray}}" wx:key="*this">
+          <view class="cell">{{item[0]}}</view>
+        </block>
+    </view>
+
+    <view class="row blue">
+        <block wx:for="{{lngzArray}}" wx:key="*this">
+          <view class="cell">{{item[1]}}</view>
+        </block>
+    </view>
+    
+    <view class="row blue">
+      <block wx:for="{{lnyArray}}" wx:key="*this">
+          <view class="cell">{{item}}</view>
+        </block>
+    </view>
+  </view>
+
+  <view class="section">
+     <view class="row red"></view>
+     <view class="row red"></view>
+     <view class="row red"></view>
+     <view class="row red"></view>
+     <view class="row red"></view>
+     <view class="row red"></view>
+  </view>
+</view>
