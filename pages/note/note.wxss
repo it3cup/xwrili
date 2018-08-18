@@ -1,0 +1,85 @@
+.content{
+  padding-top: 20rpx;
+  background-color: #cccccc;
+  height: 10000rpx;
+}
+
+.item{
+  background: white;
+  width: 710rpx;
+  margin-top:2rpx; 
+  margin-left:20rpx; 
+}
+
+.txt{
+  padding-left: 10rpx;
+  padding-top: 10rpx;
+  width: 100%;
+  height: 100rpx;
+  overflow: hidden;
+
+}
+
+.del{
+  display: flex;
+  flex-direction: row;
+}
+
+.del .left{
+  width: 80%;
+  height: 40rpx;
+}
+
+.del .right{
+  width: 20%;
+  height: 40rpx;
+  color:white;
+  text-align: center;
+  font-size: small;
+  border: 1px solid #ccc;
+  background-color: red;
+  border-radius: 50px;
+}
+
+
+
+.add{
+  font-size: 30px;
+  text-align: center;
+  background: white;
+  width: 710rpx;
+  height: 100rpx;
+  margin-top:2rpx; 
+  margin-left:20rpx;
+}
+
+.curr{
+  height: 200rpx;
+}
+
+.hidden{
+  display: none;
+}
+
+.input{
+  background:#ccc;
+  width: 710rpx;
+  margin-top:20rpx; 
+  margin-left:20rpx; 
+  height: 100rpx;
+  background-color: white;
+}
+
+.input input{
+
+  width: 100%;
+  height: 100rpx;
+  border: 1px solid yellowgreen;
+  border-radius: 5rpx;
+}
+
+.input button{
+  margin-top: 10rpx;
+  border: 1px solid yellowgreen;
+  width: 20%;
+}

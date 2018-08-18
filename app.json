@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/today/today",
+    "pages/note/note",
+    "pages/about/about",
+    "pages/fate/fate"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "日历",
+        "iconPath": "img/bar/index.png",
+        "selectedIconPath": "img/bar/index2.png"
+      },
+      {
+        "pagePath": "pages/today/today",
+        "text": "今日",
+        "iconPath": "img/bar/today.png",
+        "selectedIconPath": "img/bar/today2.png"
+      },
+      {
+        "pagePath": "pages/note/note",
+        "text": "笔记",
+        "iconPath": "img/bar/note.png",
+        "selectedIconPath": "img/bar/note2.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于",
+        "iconPath": "img/bar/about.png",
+        "selectedIconPath": "img/bar/about2.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "bold",
+    "navigationBarBackgroundColor": "#ff0000",
+    "navigationBarTitleText": "日历",
+    "navigationBarTextStyle": "#fff"
+  }
+}

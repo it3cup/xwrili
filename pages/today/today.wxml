@@ -1,0 +1,30 @@
+<view class="content">
+  <view class="title">公元{{year}}年{{month}}月{{date}}日星期{{week}}</view>
+  <view class="row">
+      <view class="col"> 
+         <view class="cel">{{ygz[0]}}</view>
+         <view class="cel">{{ygz[0]}}</view> 
+         <view class="cel">年</view> 
+         <view class="cel">{{tmonth[0]}}</view> 
+         <view class="cel">{{tmonth[1]}}</view> 
+      </view>
+      <view class="col center">{{tdate[0]}}</view>
+      <view class="col">
+         <view class="cel"></view>
+         <view class="cel"></view> 
+         <view class="cel"></view> 
+      </view>
+  </view>
+  <view class="row">
+      <view class="col"> </view>
+      <view class="col center">{{tdate[1]}}</view>
+      <view class="col">
+         <view class="scel">{{jq[0]}}</view>
+         <view class="scel">{{jq[1]}}</view> 
+      </view>
+  </view>
+
+
+
+</view>
+
