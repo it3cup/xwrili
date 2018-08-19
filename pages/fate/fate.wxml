@@ -1,7 +1,10 @@
 <view class="content">
   <view class="section center">
     <view class="row">
-      {{dateStr}}[{{sex}}]
+      {{sex==0?'乾造八字[男]':'坤造八字[女]'}}
+    </view>
+    <view class="row">
+      {{dateStr}}
     </view>
      <view class="row">
         {{lunarStr}}
@@ -46,27 +49,27 @@
      <view class="row red">大运</view>
     <view class="row red">
         <block wx:for="{{yssArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
+          <view class="cellB">{{item}}</view>
         </block>
     </view>
     <view class="row blue">
     <block wx:for="{{ytgArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
+          <view class="cellB">{{item}}</view>
         </block>
     </view>
     <view class="row blue">
         <block wx:for="{{ydzArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
+          <view class="cellB">{{item}}</view>
         </block>
     </view>
     <view class="row">
         <block wx:for="{{yswArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
+          <view class="cellB">{{item}}</view>
         </block>
     </view>
-    <view class="row">
+    <view class="row small">
         <block wx:for="{{ydyArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
+          <view class="cellB">{{item}}</view>
         </block>
     </view>
   </view>
@@ -76,34 +79,31 @@
      <view class="row red">流年</view>
     <view class="row red">
         <block wx:for="{{lnssArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
+          <view class="cellB">{{item}}</view>
         </block>
     </view>
     <view class="row blue">
         <block wx:for="{{lngzArray}}" wx:key="*this">
-          <view class="cell">{{item[0]}}</view>
+          <view class="cellB">{{item[0]}}</view>
         </block>
     </view>
 
-    <view class="row blue">
+    <view class="row">
         <block wx:for="{{lngzArray}}" wx:key="*this">
-          <view class="cell">{{item[1]}}</view>
+          <view class="cellB">{{item[1]}}</view>
         </block>
     </view>
     
-    <view class="row blue">
+    <view class="row small">
       <block wx:for="{{lnyArray}}" wx:key="*this">
-          <view class="cell">{{item}}</view>
-        </block>
+          <view class="cellB">{{item}}</view>
+      </block>
     </view>
   </view>
 
   <view class="section">
-     <view class="row red"></view>
-     <view class="row red"></view>
-     <view class="row red"></view>
-     <view class="row red"></view>
-     <view class="row red"></view>
-     <view class="row red"></view>
+    <block wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" wx:key="*this">
+          <view class="row"></view>
+    </block>
   </view>
 </view>

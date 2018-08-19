@@ -82,8 +82,6 @@
     var m = 0;
     var sumDays = 0;
     var leap = false;
-
-    //console.log("y" + y);
     var yearInfo = getYearInfo(y);
     var dateDiff = getDateDiff(yearInfo.cjDate, date);
 
@@ -127,8 +125,8 @@
     var jqDays = yearInfo.jqDays;
     for (var i = 0; i < jqDays.length; i += 2) {
       if (sumDays + jqDays[i] + jqDays[i + 1] > dateDiff) {
-        jq = (dateDiff == sumDays) ? jq = JN[i] : jq;
-        jq = (dateDiff == sumDays + jqDays[i + 1]) ? jq = JN[i + 1] : jq;
+        jq = (dateDiff == sumDays) ? JN[i] : jq;
+        jq = (dateDiff == sumDays + jqDays[i]) ? JN[i + 1] : jq;
         m = i / 2 + 1;
         break;
       }
@@ -212,10 +210,15 @@
     };
   };
   var decJieqi = function (jqToken) {
+
+    //先换成10进制， 然后换成8进制
+    var tokenNumber = parseInt(jqToken, 2);
+    var strList = padding(tokenNumber.toString(8), 12);
+
     var jqDays = [];
-    for (var i = 0; i < jqToken.length; i++) {
+    for (var i = 0; i < strList.length; i++) {
       var keys = [[14, 15], [14, 16], [15, 14], [15, 15], [15, 16], [16, 14], [16, 15], [16, 16]];
-      var num = parseInt(jqToken[i]);
+      var num = parseInt(strList[i]);
       jqDays.push(keys[num][0], keys[num][1]);
     }
     return jqDays;
@@ -243,9 +246,6 @@
     }
     return result;
   };
-
-  //return get(dateStr);
-  //}
   module.exports.getTradDate = getTradDate;
 
 })();

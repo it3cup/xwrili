@@ -11,15 +11,15 @@
   color: red;
   font-weight: bold;
   font-size: 20px;
-  width: 50%;
+  width: 70%;
 }
 
 .title .right {
   margin-top: 8px;
   text-align: right;
   color: #777665;
-  font-size: 12px;
-  width: 50%;
+  font-size: 14px;
+  width: 30%;
 }
 
 
@@ -51,20 +51,29 @@
 .day {
   text-align: center;
   font-size: 20px;
+  font-weight: bold;
 }
 
-.lunar {
+.normal .lunar {
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: lighter;
   color: #777665;
   opacity: 0.7;
 }
 
+.select .lunar {
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  color:white;
+  opacity: 0.7;
+}
 .wTitle {
   margin-top: 5px;
   display: flex;
   flex-direction: row;
-  font-size: 12px;
+  font-size: 14px;
   color: black;
 }
 
@@ -86,16 +95,16 @@
 .lunarLeft{
   color: red;
   font-weight: bold;
-  font-size: 16px;
-  width: 50%;
+  font-size: 20px;
+  width: 70%;
 }
 
 .lunarRight{
-  margin-top: 8;
+  margin-top: 8px;
   text-align: right;
   color: #777665;
-  font-size: 12px;
-  width: 50%;
+  font-size: 14px;
+  width: 30%;
 }
 
 
@@ -107,31 +116,33 @@
 
 .bottom .bl{
   width: 20%;
-  height: 50px;
 }
 
 .bottom .br{
   width: 80%;
-  height: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .bottom .br view{
+  height: 30px;
   width: 14%;
   border: 1px solid #ccc;
   text-align: center;
   margin-top: 4px;
   margin-right: 2px;
+  padding-top: 10px;
 }
 
 .bottom .bl view{
+  height: 30px;
   border: 1px solid #ccc;
   border-radius: 5px;
   text-align: center;
   margin-top: 4px;
   margin-right: 2px;
+  padding-top: 10px;
 }
 
 .gray{
@@ -139,7 +150,7 @@
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 5px;
-  font-size: small;
+  font-size: 16px;
   font-weight: lighter;
 }
 
@@ -147,8 +158,12 @@
   color: white;
   border: 1px solid #ccc;
   background-color: red;
-  border-radius: 50px;
-  font-size: small;
+  border-radius: 5px;
+  font-size: 16px;
   font-weight: lighter;
-  
+}
+
+.today{
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

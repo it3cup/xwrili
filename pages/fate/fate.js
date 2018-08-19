@@ -33,21 +33,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-
+    console.log(options.sex);
     var TCal = require("../../utils/TCal.js");
     var d = new Date(options.date.replace(/[-][0]*/g, "/"));
-    console.log(options.date.replace(/[-][0]*/g, "/"));
     var td = TCal.getTradDate(d);
 
     var ygz = td.ygz;
     var mgz = td.mgz;
     var dgz = td.dgz;
     var tgz = this.getTimeGanZhi(dgz[0], options.time); //时干支
-    console.log(dgz + "-" + tgz);
 
      var dateStr = "公元"+d.getFullYear() + "年"+(d.getMonth()+1)+"月"+d.getDate()+"日";   
-     var lunarStr = td.yn + td.mn +  td.dn + "日";
+     var lunarStr = ygz +"年" + td.mn +  td.dn + "日";
 
 
      var ssArray = [];
@@ -77,7 +74,6 @@ Page({
     cgArray.push(this.CG[this.ZHI.indexOf(mgz[1])]);
     cgArray.push(this.CG[this.ZHI.indexOf(dgz[1])]);
     cgArray.push(this.CG[this.ZHI.indexOf(tgz[1])]);
-    console.log(cgArray);
 
     var wxArray = ["五行：", "木", "火", "土", "金", "水"];
     var wcArray = this.getWXCount(ygz + mgz + dgz + tgz);
@@ -89,16 +85,15 @@ Page({
     var ydzArray = [];
     var yswArray = [];
     var ydyArray = [];
-    var qiyunYear = this.getDayunYear(options.sex, ygz, d);
-
-    console.log("-------"+qiyunYear);
+    var qiyunYear = this.getDayunYear(options.sex, ygz, d, options.time);
 
     for(var i=0; i<dayun.length; i++) {
-      ydyArray.push(qiyunYear++);
+      ydyArray.push(qiyunYear);
       yssArray.push(this.getShiShen(dgz[0],dayun[i][0]));
       ytgArray.push(dayun[i][0]);
       ydzArray.push(dayun[i][1]);
       yswArray.push(this.getShengWang(dgz[0], dayun[i][1]));
+      qiyunYear += 10;
     }
 
 
@@ -106,39 +101,33 @@ Page({
     var lngzArray = [];
     var lnyArray = [];
 
-    var lny = parseInt(d.getFullYear() - 2);
+    var lny = parseInt(new Date().getFullYear() - 1);
     for(var i=0; i<8; i++, lny++){
       lnyArray.push(lny);
       var lnIdx = (lny - 1900 + 36)%60;
       var lnGZ = this.getGanzhi(lnIdx);
       lngzArray.push(lnGZ);
-      console.log("====="+lnGZ);
       var ss = this.getShiShen(dgz[0], lnGZ[0]);
       lnssArray.push(ss);
     }
-
-    
-    console.log(dayun);
-
      this.setData({
       dateStr: dateStr, 
       lunarStr: lunarStr, 
-      sex : options.sex === "0" ? "男" : "女",
+      sex : options.sex,
       ssArray: ssArray,
       tgArray: tgArray,
       dzArray: dzArray,
       cgArray: cgArray,
-       wxArray: wxArray,
-       wcArray: wcArray,
-       yssArray: yssArray,
-       ytgArray: ytgArray,
-       ydzArray: ydzArray,
-       yswArray: yswArray,
-       ydyArray: ydyArray,
-       lnssArray: lnssArray,
-       lnyArray: lnyArray,
-       lngzArray: lngzArray
-       
+      wxArray: wxArray,
+      wcArray: wcArray,
+      yssArray: yssArray,
+      ytgArray: ytgArray,
+      ydzArray: ydzArray,
+      yswArray: yswArray,
+      ydyArray: ydyArray,
+      lnssArray: lnssArray,
+      lnyArray: lnyArray,
+      lngzArray: lngzArray      
      });
 
   },
@@ -153,18 +142,16 @@ Page({
       index = table[ganIdx] - zhiIdx;
     }
     index = (index + 12 ) % 12;
-    console.log("me" + me + "dizhi" + dizhi +"idx" + index+"-" +this.SWSJ[index]);
     return this.SWSJ[index];
   },
   getDayun: function (sex, ygz, mgz) {
       var dayun = [];
       var step = -1;
-      if (sex==0 && this.GANYY[this.GAN.indexOf[ygz[0]]] ==="+") {
-        step = -1;
-      }
-
-      if (sex == 1 && this.GANYY[this.GAN.indexOf[ygz[0]]] === "-") {
-        step = -1;
+    console.log(this.GANYY[this.GAN.indexOf(ygz[0])] );
+    if (sex == 0 && this.GANYY[this.GAN.indexOf(ygz[0])] ==="+") {
+        step = 1;
+    } else if (sex == 1 && this.GANYY[this.GAN.indexOf(ygz[0])] === "-") {
+        step = 1;
       }
       var idx = this.getGanZhiIndex(mgz);
       for (var i=0; i<8; i++){
@@ -194,7 +181,6 @@ Page({
       } else {
         wxIdx = this.WX.indexOf(this.ZHIWX[this.ZHI.indexOf(str[k])]);
       }
-      console.log(wxIdx);
       array[wxIdx+1] += 1;
     }
     return array;
@@ -218,41 +204,40 @@ Page({
     var table = [["劫", "比"], ["伤", "食"], ["财", "才"], ["官", "煞"], ["印", "枭"]];
     return table[diff][yy];
   },
-  getDayunYear: function(sex, ygz, date) {
+  getDayunYear: function(sex, ygz, date, time) {
     var step = -1; 
     var ygzIdx = this.GAN.indexOf(ygz[0]);
     if ((sex == 0 && ygzIdx%2===0) || (sex == 1 && ygzIdx %2===1)){
       step =1;
     }
-    
-
+    console.log("sex : " + sex + "step:" + step);
     var TCal = require("../../utils/TCal.js");
     var jqArray = "立春|惊蛰|清明|立夏|芒种|小暑|立秋|白露|寒露|立冬|大雪|小寒";
     var dayCount = 0;
     var dateDiff = 0;
-    var dateIter = date;
-    while(true){
-    
-      var td = TCal.getTradDate(dateIter); 
-      console.log(td.jq);
+
+    var secs = 24 * 60 * 60 * 1000;
+    for (var i = date; ; i = new Date(i.getTime() + step * secs)) {
+      var td = TCal.getTradDate(i); 
       if(td.jq!="" && jqArray.indexOf(td.jq)>-1) {
-        dateDiff = Math.abs(parseInt((dateIter.getTime() - date.getTime())/1000/24/60/60));
+        dateDiff = Math.abs(((i.getTime() - date.getTime()) / secs));
         break;
       }
-      dateIter = new Date(dateIter.getTime() + step * 24*60*60*1000);
-      
     }
 
-    var hour = step > 0 ? (12 - date.getHours() / 2) : date.getHours() / 2;
-    hour = parseInt(hour);
-
-    if (dateDiff=0) {return parseInt(date.getFullYear);}
+    var hour = step > 0 ? (12 - time - 1) : time;
+    if (dateDiff == 0) {
+      return parseInt(date.getFullYear);
+    }
 
     //var totalHours = (dateDiff-1)*12 + hour;
+
+    console.log("dateDiff" + dateDiff);
     var totalDays = parseInt(dateDiff/3) * 365 + (dateDiff%3) * 120 + hour * 10;
 
-    var qiyunDate = new Date(date.getTime() + totalDays * 24 * 60 * 60 * 1000);
-    return parseInt(qiyunDate.getFullYear());
+    console.log(totalDays);
 
+    var qiyunDate = new Date(date.getTime() + totalDays * secs);
+    return parseInt(qiyunDate.getFullYear());
   }
 })
