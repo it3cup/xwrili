@@ -84,9 +84,6 @@ Page({
       if (tdn=="初一") tdn = t.mn;
       if (t.jq !="") tdn = t.jq;
       var isToday = firstDate.getFullYear()===now.getFullYear() && firstDate.getMonth() === now.getMonth() && firstDate.getDate() === now.getDate();
-      if (isToday){
-        console.log("==============");
-      }
       dates.push({
         isToday: isToday,
         select: firstDate.getDate() == date,

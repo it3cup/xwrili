@@ -33,7 +33,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.sex);
+    //console.log(options.sex);
     var TCal = require("../../utils/TCal.js");
     var d = new Date(options.date.replace(/[-][0]*/g, "/"));
     var td = TCal.getTradDate(d);
@@ -147,7 +147,7 @@ Page({
   getDayun: function (sex, ygz, mgz) {
       var dayun = [];
       var step = -1;
-    console.log(this.GANYY[this.GAN.indexOf(ygz[0])] );
+    //console.log(this.GANYY[this.GAN.indexOf(ygz[0])] );
     if (sex == 0 && this.GANYY[this.GAN.indexOf(ygz[0])] ==="+") {
         step = 1;
     } else if (sex == 1 && this.GANYY[this.GAN.indexOf(ygz[0])] === "-") {
@@ -210,7 +210,7 @@ Page({
     if ((sex == 0 && ygzIdx%2===0) || (sex == 1 && ygzIdx %2===1)){
       step =1;
     }
-    console.log("sex : " + sex + "step:" + step);
+    //console.log("sex : " + sex + "step:" + step);
     var TCal = require("../../utils/TCal.js");
     var jqArray = "立春|惊蛰|清明|立夏|芒种|小暑|立秋|白露|寒露|立冬|大雪|小寒";
     var dayCount = 0;
@@ -232,10 +232,10 @@ Page({
 
     //var totalHours = (dateDiff-1)*12 + hour;
 
-    console.log("dateDiff" + dateDiff);
+    //console.log("dateDiff" + dateDiff);
     var totalDays = parseInt(dateDiff/3) * 365 + (dateDiff%3) * 120 + hour * 10;
 
-    console.log(totalDays);
+    //console.log(totalDays);
 
     var qiyunDate = new Date(date.getTime() + totalDays * secs);
     return parseInt(qiyunDate.getFullYear());

@@ -1,5 +1,5 @@
 .content {
-  margin: 10px;
+  margin: 14rpx;
 }
 
 .title {
@@ -15,7 +15,7 @@
 }
 
 .title .right {
-  margin-top: 8px;
+  margin-top: 15rpx;
   text-align: right;
   color: #777665;
   font-size: 14px;
@@ -25,26 +25,27 @@
 
 
 .items {
-  margin-top: 5px;
+  margin-top: 10rpx;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .select {
-  margin-top: 5px;
+  margin-top: 10rpx;
   color: white;
-  width: 14%;
+  width: 100rpx;
   border: 1px solid #ccc;
   background-color: red;
-  border-radius: 5px;
+  border-radius: 5rpx;
   text-align: center;
 }
 
 .normal {
   margin-top: 5px;
   color: black;
-  width: 14%;
+  width: 99rpx;
+  border: 1px solid white;
   text-align: center;
 }
 
@@ -127,7 +128,7 @@
 
 .bottom .br view{
   height: 30px;
-  width: 14%;
+  width: 87rpx;
   border: 1px solid #ccc;
   text-align: center;
   margin-top: 4px;
@@ -142,6 +143,7 @@
   text-align: center;
   margin-top: 4px;
   margin-right: 2px;
+  margin-left: 5px;
   padding-top: 10px;
 }
 
