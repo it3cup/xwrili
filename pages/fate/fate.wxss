@@ -1,8 +1,9 @@
 .content{
   background-color: #efeff4;
   padding: 10rpx;
-  font-size: 16px;
   font-weight: normal;
+  font-size: 16px;
+	line-height: 18px;
 }
 
 .section{

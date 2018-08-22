@@ -6,31 +6,44 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
 }
 
-.title image {
-  margin-left: 5px;
+
+
+.title .pickerContent{
+  display: flex;
+  flex-direction: row;
+}
+
+.title .pickerContent image {
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  margin-left:5rpx; 
   height: 40rpx;
   width: 40rpx;
 }
 
 .title .left {
-  display: flex;
-  flex-direction: row;
   color: red;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 21px;
   width: 500rpx;
   height: 70rpx;
   line-height: 70rpx;
   /* border: 1px solid #dfdfdf; */
 }
 
+.title .left .picker{
+  display: flex;
+  flex-direction: row;
+}
+
 .title .right {
   line-height: 70rpx;
   height: 70rpx;
   text-align: right;
-  font-size: 14px;
+  font-size: 16px;
   width: 200rpx;
   /* border: 1px solid #dfdfdf; */
   color: gray;
@@ -56,7 +69,7 @@
 
 .normal {
   margin-top: 5px;
-  color: black;
+  color:#333333;
   width: 99rpx;
   border: 1px solid white;
   text-align: center;
@@ -64,8 +77,10 @@
 
 .day {
   text-align: center;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  /* font-weight: bold; */
+  /* //font-style: italic; */
+  font-family: 
 }
 
 .normal .lunar {
@@ -78,7 +93,7 @@
 
 .select .lunar {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   color: white;
   opacity: 0.7;
@@ -88,8 +103,8 @@
   margin-top: 5px;
   display: flex;
   flex-direction: row;
-  font-size: 14px;
-  color: black;
+  font-size: 16px;
+  color: #333333;
 }
 
 .wTitle view {
@@ -161,12 +176,12 @@
 }
 
 .gray {
-  color: #000;
+  color:#333333;
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 5px;
   font-size: 16px;
-  font-weight: lighter;
+
 }
 
 .red {
@@ -175,7 +190,6 @@
   background-color: red;
   border-radius: 5px;
   font-size: 16px;
-  font-weight: lighter;
 }
 
 .today {

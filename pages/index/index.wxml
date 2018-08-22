@@ -2,9 +2,10 @@
   <view class="title">
     
     <view class="left">
-    <view>{{currCal.year}}年{{currCal.month}}月{{currCal.date}}日</view> 
-    <picker mode="date" value="{{currCal.selectDateStr}}" start="1901-01-01" end="2100-12-31" bindchange="onDateChange">
-    <image src="../../img/picker.png"></image>
+      <picker mode="date" value="{{currCal.selectDateStr}}" start="1901-01-01" end="2100-12-31" bindchange="onDateChange">
+    <view class="pickerContent">
+    <image src="../../img/picker.png"></image><view>{{currCal.year}}年{{currCal.month}}月{{currCal.date}}日 </view> 
+    </view>
     </picker>
     </view>
     <view class="right" bindtap="toToday">返回今天></view>
@@ -23,16 +24,18 @@
    <view class="hr"></view>
     <view class="items" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchcancel="touchcancel" bindtouchend="touchend">
     <view wx:key="key" wx:for="{{currCal.calendar}}" wx:for-item="j" class="{{j.select?'select':'normal'}}  {{j.isToday?'today':''}}" bindtap="onDateClick" data-date="{{j.date}}">
-          <view class="date">{{j.date}}</view>
+          <view class="day">{{j.date}}</view>
           <view class="lunar">{{j.lunarDay}}</view>
     </view> 
     </view>
   
   <view class="title">
       <view class="left">
-      <view>{{currCal.tradDate.ygz}}年{{currCal.tradDate.mn}}{{currCal.tradDate.dn}} </view>
-      <picker mode="multiSelector" value="{{lunarIndex}}" range="{{lunarArray}}" bindchange="onLunarChange"  bindcolumnchange="onColunmChange">
-      <image src="../../img/picker.png"></image>
+      <picker class="picker" mode="multiSelector" value="{{lunarIndex}}" range="{{lunarArray}}" bindchange="onLunarChange"  bindcolumnchange="onColunmChange">
+       <view class="pickerContent">
+       <image src="../../img/picker.png"></image>
+      <view>{{currCal.tradDate.ygz}}年{{currCal.tradDate.mn}}{{currCal.tradDate.dn}}      </view>
+      </view>
       </picker>
       </view>
       <view class="right" bindtap="onFate">
