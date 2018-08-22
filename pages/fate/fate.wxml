@@ -103,9 +103,7 @@
 
   <view class="section">
     <view>八字易知，人心难测 </view>
-    <view class="small">邮件：it3cup@foxmail.com</view>
-    <view class="small">微信：wls3cup</view>
-    
-    <image class="mywx" src="../../img/mywx.png"></image>
+    <view ><text selectable="{{true}}">邮件：it3cup@foxmail.com</text></view>
+    <view ><text selectable="{{true}}">微信：wls3cup</text></view>
   </view>
 </view>
