@@ -102,8 +102,10 @@
   </view>
 
   <view class="section">
-    <block wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" wx:key="*this">
-          <view class="row"></view>
-    </block>
+    <view>八字易知，人心难测 </view>
+    <view class="small">邮件：it3cup@foxmail.com</view>
+    <view class="small">微信：wls3cup</view>
+    
+    <image class="mywx" src="../../img/mywx.png"></image>
   </view>
 </view>

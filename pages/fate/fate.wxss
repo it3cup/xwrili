@@ -41,3 +41,12 @@
 .center{
   text-align: center;
 }
+
+ .mywx {
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  margin-left:5rpx; 
+  height: 120px;
+  width: 120px;
+  border: 2px solid #fff;
+}
