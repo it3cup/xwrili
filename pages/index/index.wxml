@@ -1,13 +1,17 @@
 <view class="content">
   <view class="title">
-    <view class="left">{{year}}年{{month}}月{{date}}日</view>
-    <view class="right">
-      <picker mode="date" value="{{selectDateStr}}" start="1901-01-01" end="2100-12-31" bindchange="onDateChange">
-         <view>选择日期></view>
-      </picker>
+    
+    <view class="left">
+    <view>{{currCal.year}}年{{currCal.month}}月{{currCal.date}}日</view> 
+    <picker mode="date" value="{{currCal.selectDateStr}}" start="1901-01-01" end="2100-12-31" bindchange="onDateChange">
+    <image src="../../img/picker.png"></image>
+    </picker>
     </view>
+    <view class="right" bindtap="toToday">返回今天></view>
   </view>
-  <view class="wTitle">
+  <!-- <view class="hr"></view> -->
+
+<view class="wTitle">
     <view>一</view>
     <view>二</view>
     <view>三</view>
@@ -16,27 +20,30 @@
     <view class="weekend">六</view>
     <view class="weekend">日</view>
   </view>
-  <view class="hr"></view>
-  <view class="items">
-    <view wx:for="{{dates}}" wx:key="date" class="{{item.select?'select':'normal'}}  {{item.isToday?'today':''}}" bindtap="onDateClick" data-date="{{item.date}}">
-          <view class="date">{{item.date}}</view>
-          <view class="lunar">{{item.lunarDay}}</view>
+   <view class="hr"></view>
+    <view class="items" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchcancel="touchcancel" bindtouchend="touchend">
+    <view wx:key="key" wx:for="{{currCal.calendar}}" wx:for-item="j" class="{{j.select?'select':'normal'}}  {{j.isToday?'today':''}}" bindtap="onDateClick" data-date="{{j.date}}">
+          <view class="date">{{j.date}}</view>
+          <view class="lunar">{{j.lunarDay}}</view>
     </view> 
-  </view>
+    </view>
   
-
-  <view class="lunarInfo">
-      <view class="lunarLeft">
-      农历{{lunarMonth}}{{lunarDate}}
+  <view class="title">
+      <view class="left">
+      <view>{{currCal.tradDate.ygz}}年{{currCal.tradDate.mn}}{{currCal.tradDate.dn}} </view>
+      <picker mode="multiSelector" value="{{lunarIndex}}" range="{{lunarArray}}" bindchange="onLunarChange"  bindcolumnchange="onColunmChange">
+      <image src="../../img/picker.png"></image>
+      </picker>
       </view>
-      <view class="lunarRight" bindtap="onFate">
+      <view class="right" bindtap="onFate">
       查看八字>
       </view>
   </view>
+
   <view class="hr"></view>
   <view class="bottom">
       <view class="bl"> 
-            <block wx:for="{{['乾造', '坤造']}}" wx:key="*this">
+            <block wx:for="{{['男', '女']}}" wx:key="*this">
      <view class="{{sex==index ?'red':'gray'}}" bindtap="onSexSelect" data-sex="{{index}}">{{item}}</view>
      </block>
       </view>

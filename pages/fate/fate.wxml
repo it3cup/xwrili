@@ -88,7 +88,7 @@
         </block>
     </view>
 
-    <view class="row">
+    <view class="row blue">
         <block wx:for="{{lngzArray}}" wx:key="*this">
           <view class="cellB">{{item[1]}}</view>
         </block>

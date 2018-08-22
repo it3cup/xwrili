@@ -1,4 +1,5 @@
 // pages/fate/fate.js
+var TCal = require("../../utils/TCal.js");
 Page({
 
   /**
@@ -34,7 +35,7 @@ Page({
    */
   onLoad: function (options) {
     //console.log(options.sex);
-    var TCal = require("../../utils/TCal.js");
+
     var d = new Date(options.date.replace(/[-][0]*/g, "/"));
     var td = TCal.getTradDate(d);
 
@@ -211,7 +212,6 @@ Page({
       step =1;
     }
     //console.log("sex : " + sex + "step:" + step);
-    var TCal = require("../../utils/TCal.js");
     var jqArray = "立春|惊蛰|清明|立夏|芒种|小暑|立秋|白露|寒露|立冬|大雪|小寒";
     var dayCount = 0;
     var dateDiff = 0;
@@ -227,7 +227,7 @@ Page({
 
     var hour = step > 0 ? (12 - time - 1) : time;
     if (dateDiff == 0) {
-      return parseInt(date.getFullYear);
+      return parseInt(date.getFullYear());
     }
 
     //var totalHours = (dateDiff-1)*12 + hour;

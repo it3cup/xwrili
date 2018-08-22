@@ -246,6 +246,7 @@
     }
     return result;
   };
+  
   module.exports.getTradDate = getTradDate;
 
 })();
