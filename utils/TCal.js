@@ -181,8 +181,10 @@
   var getWeekDayName = function (i) {
     return i == 7 ? "周日" : ("周" + NUMS[i]);
   };
-  var getDateDiff = function (from, to) {
-    return parseInt((to.getTime() - from.getTime()) / 1000 / 60 / 60 / 24);
+  var getDateDiff = function (a, b) {
+    var toMs = getTime(b);
+    var fromMs = getTime(a);
+    return parseInt((toMs - fromMs) / 1000 / 60 / 60 / 24);
   };
   var getYearInfo = function (year) {
     var str = YINFO[year - FDAY.date.getFullYear()];
@@ -246,7 +248,20 @@
     }
     return result;
   };
+
+  // The problem of timezone
+  // China 1986-1992 daylight savings time
+  var getTime = function(date) {
+    var now = new Date();
+    var nowTz = now.getTimezoneOffset();
+    var dateTz = date.getTimezoneOffset();
+    if (nowTz === dateTz) {
+      return date.getTime();
+    }
+    return date.getTime() + (nowTz - dateTz) * 60 * 1000;
+  };
   
   module.exports.getTradDate = getTradDate;
+  module.exports.getTime = getTime;
 
 })();

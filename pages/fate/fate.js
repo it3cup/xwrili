@@ -217,10 +217,10 @@ Page({
     var dateDiff = 0;
 
     var secs = 24 * 60 * 60 * 1000;
-    for (var i = date; ; i = new Date(i.getTime() + step * secs)) {
+    for (var i = date; ; i = new Date(TCal.getTime(i) + step * secs)) {
       var td = TCal.getTradDate(i); 
       if(td.jq!="" && jqArray.indexOf(td.jq)>-1) {
-        dateDiff = Math.abs(((i.getTime() - date.getTime()) / secs));
+        dateDiff = Math.abs(((TCal.getTime(i) - TCal.getTime(date)) / secs));
         break;
       }
     }
@@ -237,7 +237,7 @@ Page({
 
     //console.log(totalDays);
 
-    var qiyunDate = new Date(date.getTime() + totalDays * secs);
+    var qiyunDate = new Date(TCal.getTime(date) + totalDays * secs);
     return parseInt(qiyunDate.getFullYear());
   }
 })

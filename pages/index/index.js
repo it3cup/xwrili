@@ -81,9 +81,6 @@ Page({
     //console.log("@@@@@@@@@@@@@")
   },
   onLoad: function() {
-    //var dateList = this.getDateList(new Date());
-    // console.log(dateList);
-
     var years = [];
 
     for (var i = 1901; i < 2101; i++) {
@@ -171,7 +168,7 @@ Page({
         date: iterator.getDate(),
         lunarDay: tdn
       });
-      iterator = new Date(iterator.getTime() + 24 * 60 * 60 * 1000);
+      iterator = new Date(TCal.getTime(iterator) + 24 * 60 * 60 * 1000);
       ////if (++rrrr > 200) {
       ////  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       ////}
@@ -216,7 +213,7 @@ Page({
         console.log("i" + i);
         return d;
       }
-      d = new Date(d.getTime() + step * 24 * 60 * 60 * 1000);
+      d = new Date(TCal.getTime(d) + step * 24 * 60 * 60 * 1000);
       tradDate = TCal.getTradDate(d);
     }
 
