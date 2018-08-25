@@ -1,5 +1,5 @@
 // pages/fate/fate.js
-var TCal = require("../../utils/TCal.js");
+var tcal = require("../../utils/TCal.js");
 Page({
 
   /**
@@ -37,7 +37,7 @@ Page({
     //console.log(options.sex);
 
     var d = new Date(options.date.replace(/[-][0]*/g, "/"));
-    var td = TCal.getTradDate(d);
+    var td = tcal.TCal.getTradDate(d);
 
     var ygz = td.ygz;
     var mgz = td.mgz;
@@ -217,10 +217,10 @@ Page({
     var dateDiff = 0;
 
     var secs = 24 * 60 * 60 * 1000;
-    for (var i = date; ; i = new Date(TCal.getTime(i) + step * secs)) {
-      var td = TCal.getTradDate(i); 
+    for (var i = date; ; i = new Date(tcal.TCal.getTime(i) + step * secs)) {
+      var td = tcal.TCal.getTradDate(i); 
       if(td.jq!="" && jqArray.indexOf(td.jq)>-1) {
-        dateDiff = Math.abs(((TCal.getTime(i) - TCal.getTime(date)) / secs));
+        dateDiff = Math.abs(((tcal.TCal.getTime(i) - tcal.TCal.getTime(date)) / secs));
         break;
       }
     }
@@ -237,7 +237,7 @@ Page({
 
     //console.log(totalDays);
 
-    var qiyunDate = new Date(TCal.getTime(date) + totalDays * secs);
+    var qiyunDate = new Date(tcal.TCal.getTime(date) + totalDays * secs);
     return parseInt(qiyunDate.getFullYear());
   }
 })

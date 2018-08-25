@@ -1,4 +1,4 @@
-var TCal = require("../../utils/TCal.js");
+var tcal = require("../../utils/TCal.js");
 Page({
   data: {
     lunarIndex: [0, 0, 0, 0],
@@ -137,9 +137,9 @@ Page({
     var selectDate = new Date(year + "/" + month + "/" + date);
     var selectDateStr = year + "-" + month + "-" + date;
     var iterator = new Date(year + "/" + month + "/1");
-    var fTradDate = TCal.getTradDate(iterator);
+    var fTradDate = tcal.TCal.getTradDate(iterator);
     var wd = fTradDate.wd;
-    var tradDate = TCal.getTradDate(inputDate);
+    var tradDate = tcal.TCal.getTradDate(inputDate);
     var yearMonth = year + "年" + month + "月";
     var calendar = [];
     var key = 1;
@@ -156,7 +156,7 @@ Page({
 
     //// var rrrr = 0
     while (iterator.getMonth() + 1 === month) {
-      var t = TCal.getTradDate(iterator);
+      var t = tcal.TCal.getTradDate(iterator);
       var tdn = t.dn;
       if (tdn == "初一") tdn = t.mn;
       if (t.jq != "") tdn = t.jq;
@@ -168,7 +168,7 @@ Page({
         date: iterator.getDate(),
         lunarDay: tdn
       });
-      iterator = new Date(TCal.getTime(iterator) + 24 * 60 * 60 * 1000);
+      iterator = new Date(tcal.TCal.getTime(iterator) + 24 * 60 * 60 * 1000);
       ////if (++rrrr > 200) {
       ////  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       ////}
@@ -201,7 +201,7 @@ Page({
     //console.log(dateStr);
     var d = new Date(lunarDate.y + "/" + lunarDate.m + "/" + tmpDate);
 
-    var tradDate = TCal.getTradDate(d);
+    var tradDate = tcal.TCal.getTradDate(d);
     var step = 1;
     if (this.compareLunar(lunarDate, tradDate)<0) {
       step = -1;
@@ -213,8 +213,8 @@ Page({
         console.log("i" + i);
         return d;
       }
-      d = new Date(TCal.getTime(d) + step * 24 * 60 * 60 * 1000);
-      tradDate = TCal.getTradDate(d);
+      d = new Date(tcal.TCal.getTime(d) + step * 24 * 60 * 60 * 1000);
+      tradDate = tcal.TCal.getTradDate(d);
     }
 
     return null;

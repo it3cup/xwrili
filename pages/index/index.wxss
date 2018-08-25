@@ -78,9 +78,6 @@
 .day {
   text-align: center;
   font-size: 18px;
-  /* font-weight: bold; */
-  /* //font-style: italic; */
-  font-family: 
 }
 
 .normal .lunar {
